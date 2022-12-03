@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<center>
+<body>
+    <div id=table style="display:None;">
+        <table id="tb1">
+            <tr BORDER="2">
+                <td>1</td>
+                <td>Anakin</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Obi-Wan</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Luke</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Leia</td>
+            </tr>
+    
+        </table>
+    </div>
+    <button onclick="displaytable()">Click Me to See the table</button>
+    <p id="blank"></p>
+    <script>
+        function displaytable(){
+            var x=document.getElementById("table").innerHTML;
+            document.getElementById("blank").innerHTML=x;
+        }
+    </script>
+    </center>
+    <style>
+        table,td{
+            border:2px solid black;
+            padding:25px;
+            font-family: 'Trebuchet MS';
+            background-color: lightcoral;
+        }
+        td{
+            background-color: white;}
+        body{
+            background-color: lightblue;
+        }
+        button{
+            font-size: medium;
+            margin: auto;
+            padding: 20px;
+            border-color: black;
+        }
+    </style>
+</html>

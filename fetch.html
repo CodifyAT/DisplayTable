@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="infotab" >
+        <h4>Employees data table</h4>
+    </table>
+    <h4>Employees with sal above 50000</h4>
+    <p id="empsal"></p>
+    <h4>Employees who joined in December</h4>
+    <p id="empj"></p>
+    <script>
+        gd();
+        async function gd(){
+            const resp=await fetch("https://rawcdn.githack.com/kmitprojectschool/sem12022/788c820e40a750fecb30433c8d346457b7859abc/employee.json")
+            console.log(resp)
+            const a=await resp.json()
+            console.log(a)
+            len=a.Employees.length
+            let text=""
+            let text2=""
+            let text3=""
+            for(x=0;x<len;x++){
+                text+="<tr>"
+                text+="<td>"+ a.Employees[x].Name;"</td>"
+                text+="<td>"+a.Employees[x].Address+"</td>";
+                text+="<td>"+a.Employees[x].Salary+"</td>";
+                text+="<td>"+a.Employees[x].DateOfJoining+"</td>";
+                text+="</tr>"
+                document.getElementById("infotab").innerHTML=text
+            }
+        console.log("Employees with sal above 500000")
+            for(x=0;x<len;x++){
+                if(a.Employees[x].Salary>500000){
+                    text2=a.Employees[x].Name
+                    document.getElementById("empsal").innerHTML=text2;
+                    console.log(a.Employees[x].Name)
+                }
+            }
+        console.log("Employees who joined in december")
+            for(i=0;i<len;i++){
+                if(a.Employees[i].DateOfJoining[3]=='1'){
+                    if(a.Employees[i].DateOfJoining[4]=='2'){
+                        console.log(a.Employees[i].Name)
+                        text3+=a.Employees[i].Name+"<br>"
+                        document.getElementById("empj").innerHTML=text3;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+<style>
+    tr,td{
+        border:2px solid black;}
+</style>
+</html>
